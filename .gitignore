@@ -1,0 +1,8 @@
+# Root .gitignore
+.DS_Store
+.env
+.env.local
+*.log
+__pycache__/
+dist/
+node_modules/

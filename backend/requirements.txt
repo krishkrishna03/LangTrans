@@ -1,0 +1,24 @@
+# FastAPI Framework
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Request/Response validation
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Environment configuration
+python-dotenv==1.0.0
+
+# Language Detection
+langdetect==1.0.9
+
+# Machine Learning / Deep Learning
+transformers==4.35.2
+torch==2.1.1
+numpy==1.24.3
+
+# File handling
+aiofiles==23.2.1
+
+# HTTP Requests
+requests==2.31.0
