@@ -1,10 +1,12 @@
 # Netlify Configuration for LangTrans Frontend
 
 [build]
-  # Build command
-  command = "cd frontend && npm install && npm run build"
-  # Directory to deploy (relative to project root)
-  publish = "frontend/dist"
+  # Set base directory to frontend
+  base = "frontend"
+  # Build command - no need to cd since we're already in frontend directory
+  command = "npm install && npm run build"
+  # Directory to deploy (relative to base)
+  publish = "dist"
   # Node version
   node_version = "18.17.0"
 
