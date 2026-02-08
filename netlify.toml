@@ -1,0 +1,39 @@
+# Netlify Configuration for LangTrans Frontend
+
+[build]
+  # Build command
+  command = "cd frontend && npm install && npm run build"
+  # Directory to deploy (relative to project root)
+  publish = "frontend/dist"
+  # Node version
+  node_version = "18.17.0"
+
+[build.environment]
+  # Environment variables
+  NODE_ENV = "production"
+  VITE_API_URL = "https://your-backend-url.com/api"
+
+# Configure redirects for SPA (Single Page Application)
+# All requests should go to index.html for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache headers for assets
+[[headers]]
+  for = "/dist/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Handle API requests (proxy to backend if needed)
+# Optional: If you want to proxy API calls
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://your-backend-url.com/api/:splat"
+#   status = 200

@@ -11,6 +11,21 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser'
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'axios']
+        }
+      }
+    },
+    // Ensure proper chunking for production
+    chunkSizeWarningLimit: 1000
+  },
+  // Base URL - important for Netlify deployments
+  base: '/',
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'axios']
   }
 })
